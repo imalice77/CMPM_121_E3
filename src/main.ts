@@ -1,12 +1,57 @@
+// @deno-types="./asset-url.d.ts"
+import warmBgUrl from "./assets/warm-bg.jpg?no-inline";
+// @deno-types="./asset-url.d.ts"
+import coldBgUrl from "./assets/cold-bg.jpg?no-inline";
+
 const portrait = document.querySelector<HTMLDivElement>("#portrait")!;
 const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 
-// The prototype grew inline. Keep it this way until the refactoring checkpoint.
+// Keep the prototype inline for this feature-branch assignment.
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A neutral face with contrasting warm and cold backgrounds",
+);
 
+// Warm background image.
+// File: src/assets/warm-bg.jpg
+// Source: https://www.magnific.com/free-ai-image/3d-cartoon-coffee-cup_273781494.htm
+// Creator: Original creator has not been verified.
+// License/permission: Verify the asset-specific license on the source page.
+// Magnific free-license resources require attribution.
+const warmBackground = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+warmBackground.setAttribute("href", warmBgUrl);
+warmBackground.setAttribute("x", "0");
+warmBackground.setAttribute("y", "0");
+warmBackground.setAttribute("width", "100");
+warmBackground.setAttribute("height", "200");
+warmBackground.setAttribute("preserveAspectRatio", "xMidYMid slice");
+face.append(warmBackground);
+
+// Cold background image.
+// File: src/assets/cold-bg.jpg
+// Source: https://www.magnific.com/free-vector/frightening-halloween-realistic-background_3824490.htm
+// Creator: Original creator has not been verified.
+// License/permission: Verify the asset-specific license on the source page.
+// Magnific free-license resources require attribution.
+const coldBackground = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+coldBackground.setAttribute("href", coldBgUrl);
+coldBackground.setAttribute("x", "100");
+coldBackground.setAttribute("y", "0");
+coldBackground.setAttribute("width", "100");
+coldBackground.setAttribute("height", "200");
+coldBackground.setAttribute("preserveAspectRatio", "xMidYMid slice");
+face.append(coldBackground);
+
+// Draw the face on top of both background images.
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
 head.setAttribute("cy", "100");
