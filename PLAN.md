@@ -22,3 +22,17 @@
 ## Selection Criterion
 
 Choose the alternative that communicates its mood most clearly and remains recognizable at small sizes.
+
+## Exploration Results
+
+### A — Hearts — Explored
+
+Implemented on branch A. Added 120 pink heart decorations around the portrait. The result follows the original plan by using many hearts to create a playful, cheerful appearance.
+
+### B — Backgrounds — Explored
+
+Implemented on branch B. Used two external background images: a warm coffee-cup image and a frightening Halloween image. This differs from the original plan to create the backgrounds myself.
+
+### C — Gradient and Curves — Explored
+
+Implemented on branch C. Added a warm-yellow-to-pink gradient to the head and a quadratic Bézier curve for the smile. The result follows the original plan, with pink replacing the planned orange in the gradient.
