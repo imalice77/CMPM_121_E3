@@ -5,7 +5,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A cheerful face surrounded by a ring of pink hearts",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -58,6 +61,33 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+// Draw 120 small hearts in a spacious ring outside the head.
+const heartPath =
+  "M 0,-5 C -3,-10 -10,-8 -10,-2 C -10,4 -4,9 0,12 C 4,9 10,4 10,-2 C 10,-8 3,-10 0,-5 Z";
+
+for (let i = 0; i < 120; i++) {
+  const angle = (i / 120) * Math.PI * 2 - Math.PI / 2;
+
+  // The head reaches about 86 units from the center.
+  // A radius of 112 leaves space between the face and the hearts.
+  const radius = 94;
+  const x = 100 + radius * Math.cos(angle);
+  const y = 100 + radius * Math.sin(angle);
+  const size = 0.28;
+
+  const heart = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "path",
+  );
+  heart.setAttribute("d", heartPath);
+  heart.setAttribute(
+    "transform",
+    `translate(${x} ${y}) scale(${size}) rotate(${(i % 5) * 4})`,
+  );
+  heart.setAttribute("fill", i % 2 === 0 ? "#e85d75" : "#ff9eb5");
+  face.append(heart);
+}
 
 portrait.append(face);
 
