@@ -36,3 +36,11 @@ Implemented on branch B. Used two external background images: a warm coffee-cup 
 ### C — Gradient and Curves — Explored
 
 Implemented on branch C. Added a warm-yellow-to-pink gradient to the head and a quadratic Bézier curve for the smile. The result follows the original plan, with pink replacing the planned orange in the gradient.
+
+## Decision — C: Gradient and Curved Smile
+
+I chose **C — Gradient and Curves** because the warm-yellow-to-pink gradient and curved smile communicate a friendly, approachable mood. Using the selection criterion, this design has a clear expression and remains recognizable at small sizes. Compared with A's many heart decorations and B's contrasting background images, C keeps the focus on the character's face while still creating visual interest.
+
+The chosen expression is a warm-to-pink gradient on the head, combined with a smooth quadratic Bézier curve for the smile. The implementation is on branch `C`, rebased onto `main`, and uses `buildFace()` to construct the portrait.
+
+The alternatives remain available on their respective branches: **A — Hearts** and **B — Backgrounds**.

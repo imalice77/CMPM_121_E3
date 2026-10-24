@@ -121,7 +121,7 @@ spin.addEventListener("click", () => {
   // Restart rather than accumulate simultaneous animations on repeated clicks.
   for (const animation of face.getAnimations()) animation.cancel();
   face.animate(
-    [{ transform: "rotate(0deg)" }, { transform: "rotate(360deg)" }],
+    [{ transform: "rotate(0deg)" }, { transform: "rotate(-360deg)" }],
     { duration: 800, easing: "ease-in-out" },
   );
 });
